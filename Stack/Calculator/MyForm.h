@@ -116,7 +116,7 @@ namespace Calculator {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(17, 119);
+			this->label4->Location = System::Drawing::Point(17, 117);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(10, 13);
 			this->label4->TabIndex = 5;
