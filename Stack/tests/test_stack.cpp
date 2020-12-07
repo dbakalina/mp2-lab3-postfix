@@ -26,38 +26,6 @@ TEST(Stack, can_copy_the_stack)
  ASSERT_NO_THROW(Stack<int> copy(s));
 }
 
-TEST(Stack, the_copied_stack_is_the_same_as_the_original_one)
-{
-    Stack<int> s(3);
-    s.Push(3);
-    Stack<int> copy(s);
-    EXPECT_EQ(s.Size(), copy.Size());
-    EXPECT_EQ(s.Pop(), copy.Pop());
-}
-
-TEST(Stack, can_assign_stacks_of_the_same_data_types_and_MaxSize)
-{
-    Stack<int> s1(5);
-    Stack<int> s2(5);
-    s1.Push(5);
-    s1.Push(7);
-    s2.Push(3);
-    ASSERT_NO_THROW(s2 = s1);
-    EXPECT_EQ(s1.Size(), s2.Size());
-    EXPECT_EQ(s1.Pop(), s2.Pop());
-}
-TEST(Stack, can_assign_stacks_of_the_same_data_types_and_different_MaxSize)
-{
-    Stack<int> s1(8);
-    Stack<int> s2(5);
-    s1.Push(5);
-    s1.Push(7);
-    s2.Push(3);
-    ASSERT_NO_THROW(s2 = s1);
-    EXPECT_EQ(s1.Size(), s2.Size());
-    EXPECT_EQ(s1.Pop(), s2.Pop());
-}
-
 TEST(Stack, can_compare_stacks)
 {
     Stack<int> s1(5);
@@ -82,6 +50,37 @@ TEST(Stack, comparing_the_same_stack_gives_the_truth)
     EXPECT_EQ(1, s1 == s2);
 }
 
+TEST(Stack, the_copied_stack_is_the_same_as_the_original_one)
+{
+	Stack<int> s(5);
+	s.Push(3);
+	Stack<int> copy(s);
+	EXPECT_EQ(s.Size(), copy.Size());
+	EXPECT_EQ(s.Pop(), copy.Pop());
+}
+
+TEST(Stack, can_assign_stacks_of_the_same_data_types_and_MaxSize)
+{
+	Stack<int> s1(8);
+	Stack<int> s2(8);
+	s1.Push(5);
+	s1.Push(7);
+	s2.Push(3);
+	ASSERT_NO_THROW(s2 = s1);
+	EXPECT_EQ(s1.Size(), s2.Size());
+	EXPECT_EQ(s1.Pop(), s2.Pop());
+}
+TEST(Stack, can_assign_stacks_of_the_same_data_types_and_different_MaxSize)
+{
+	Stack<int> s1(8);
+	Stack<int> s2(5);
+	s1.Push(5);
+	s1.Push(7);
+	s2.Push(3);
+	ASSERT_NO_THROW(s2 = s1);
+	EXPECT_EQ(s1.Size(), s2.Size());
+	EXPECT_EQ(s1.Pop(), s2.Pop());
+}
 TEST(Stack, comparing_different_stack_gives_the_lie)
 {
     Stack<int> s1(5);
@@ -170,6 +169,6 @@ TEST(Stack, taking_an_element_from_the_stack_reduces_its_size_by_one)
 }
 TEST(Stack, cant_take_an_element_from_an_empty_stack)
 {
-    Stack<int> s(5);
+    Stack<int> s(4);
     ASSERT_ANY_THROW(s.Pop());
 }
